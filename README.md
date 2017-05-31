@@ -19,9 +19,9 @@ Restart Apache:
 sudo service apache2 restart
 ```
 
-Clone this repository in _/var/www_
+Clone this repository in _/var/www/html_
 ```bash
-cd /var/www
+cd /var/www/html
 git clone git clone git@github.com:jorgecasas/newtab.git .
 ```
 
@@ -30,7 +30,7 @@ Install one extension in your browser to configure and use New Tab.
 * [New Tab for Chrome](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en)
 * [New Tab Override for Firefox](https://addons.mozilla.org/en-us/firefox/addon/new-tab-override/)
 
-Configure your extension to open new tab pointing to *http://localhost**
+Configure your extension to open new tab pointing to *http://localhost*
 
 ## Configure your own links
 
