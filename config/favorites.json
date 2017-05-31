@@ -1,0 +1,57 @@
+ [
+    {
+        "name": "Gmail",
+        "url": "https://www.gmail.com",
+        "icon":  "images/gmail.ico"
+    },
+    {
+        "name": "Slack",
+        "url": "https://iternova.slack.com",
+        "icon":  "images/slack.ico"
+    },
+    {
+        "name": "Trello",
+        "url": "https://trello.com/",
+        "icon":  "images/trello.ico"
+    },
+    {
+        "name": "Github",
+        "url": "https://github.com/jorgecasas",
+        "icon":  "images/github.ico"
+    },
+    {
+        "name": "Whatsapp",
+        "url": "https://web.whatsapp.com",
+        "icon":  "images/whatsapp.ico"
+    },
+    {
+        "name": "Twitter",
+        "url": "https://www.twitter.com",
+        "icon":  "images/twitter.ico"
+    },
+    {
+        "name": "Facebook",
+        "url": "https://www.facebook.com",
+        "icon":  "images/facebook.ico"
+    },
+    {
+        "name": "Tumblr",
+        "url": "https://www.tumblr.com",
+        "icon":  "images/tumblr.ico"
+    },
+    {
+        "name": "Instagram",
+        "url": "https://instagram.com",
+        "icon":  "images/instagram.ico"
+    },
+    {
+        "name": "Spotify",
+        "url": "https://play.spotify.com",
+        "icon":  "images/spotify.ico"
+    },
+    {
+        "name": "Thingiverse",
+        "url": "https://www.thingiverse.com/",
+        "icon":  "images/thingiverse.ico"
+    }
+]
