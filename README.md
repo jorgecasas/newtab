@@ -36,7 +36,7 @@ Configure your extension to open new tab pointing to *http://localhost*
 
 You can configure your logo changing **images/header.png** with the image you want.
 
-There are 2 JSON files:
+There are different JSON files:
 
 * **config/favorites.json**: Allow you to add buttons for your most visited links. You need to add a favicon in **images** folder.
 * **config/projects.json**: Allow you to add buttons for your own projects. Favicons must be in **https://your.project.url/images/favicon.ico**. Or you can improve this script to add favicons from the **images** folder as well...

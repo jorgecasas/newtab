@@ -2,6 +2,7 @@
 // Array de configuracion de URLS de proyectos en localhost y de favoritos
 $array_projects = json_decode( file_get_contents( 'config/projects.json' ), true ); 
 $array_favorites = json_decode( file_get_contents( 'config/favorites.json' ), true );
+$array_issues = json_decode( file_get_contents( 'config/issues.json' ), true );
 
 // Configuracion de parametros 
 $n_cols = 4;
@@ -46,6 +47,23 @@ if ( !empty( $array_projects ) ) {
         $str_image = Image_Process::base64_encode_image( $url_icon  ); 
         echo "<div class='column'>";
         echo "<a href='". $url[ 'url' ] ."' class='box box-project'>". $str_image .  str_replace( '.iternova.net', '', $url_parsed[ 'host' ] ) . "</a>";
+        echo "</div>";
+    }
+
+    echo "</div>";
+}
+
+
+// New fast access to Gitlab ISSUES
+if ( !empty( $array_issues ) ) {
+    echo "<div class='separator'></div>";
+    echo "<div class='container'>";
+    echo "<h2>Github Issues</h2>";
+
+    foreach( $array_issues as $url ) {
+        $str_image = ( isset(  $url[ 'icon' ]) ? "<img class='thumbnail thumbnail-project' src='". $url[ 'icon' ] ."' />" : '' );
+        echo "<div class='column'>";
+        echo "<a href='".$url['url']."' class='box box-project'>". $str_image . $url[ 'name' ] . "</a>";
         echo "</div>";
     }
 
