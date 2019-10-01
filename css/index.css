@@ -18,7 +18,7 @@ h1, h2 {
 }
 .column {
     width: 290px;
-    min-width: $col_width%;
+    min-width: 22%;
     max-width: 100%;
     margin: 4px 8px;
     padding: 0px;
@@ -38,7 +38,28 @@ h1, h2 {
     border-radius: 6px;
     display: block;
 }
-.box:hover {
+.box-issue, .box-small{
+    color: #000000; 
+    background: #FAFAFA; 
+    border: 1px solid #F3F3F3; 
+    padding: 16px 4px; 
+    font-size: 18pt; 
+    font-weight: bold; 
+    text-align: left; 
+    text-decoration: none;
+    border-radius: 6px;
+    display: block;
+}
+.box-issue {    
+    width: 16%;
+    float:right;
+    margin-right: -8px;
+}
+.box-small{
+    width: 76%;
+}
+
+.box:hover , .box-issue:hover, .box-small:hover {
     background: #BBDEFB;
     cursor: hand;
 }
@@ -81,6 +102,6 @@ h1, h2 {
 }
 
 .thumbnail-project {
-    width:20px;
-    height:20px;
+    width:16px;
+    height:16px;
 }
