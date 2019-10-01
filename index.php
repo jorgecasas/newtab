@@ -1,4 +1,5 @@
 <?php
+// Version 20171218
 // Array de configuracion de URLS de proyectos en localhost y de favoritos
 $array_projects = json_decode( file_get_contents( 'config/projects.json' ), true ); 
 $array_favorites = json_decode( file_get_contents( 'config/favorites.json' ), true );
@@ -8,6 +9,8 @@ $array_issues = json_decode( file_get_contents( 'config/issues.json' ), true );
 $n_cols = 4;
 $col_width = round( 50 / $n_cols, 2 ); 
 $url_logo = 'images/header.png';
+$url_ico_issues = 'images/gitlab.ico';
+$issues_open_on_project = true;
 
 // Cabeceras, estilos, etc..
 echo "<head>";
@@ -42,11 +45,18 @@ if ( !empty( $array_projects ) ) {
     echo "<h2>Development Projects</h2>";
 
     foreach( $array_projects as $url ) {
+        $url_issues = ( isset(  $url[ 'issues' ]) ? $url[ 'issues' ] : '' );
         $url_parsed = parse_url( $url[ 'url' ] );
-        $url_icon =  $url[ 'url' ] .'/images/favicon.ico';
-        $str_image = Image_Process::base64_encode_image( $url_icon  ); 
+        $str_image = ( isset( $url[ 'icon' ] ) ? "<img class='thumbnail thumbnail-project' src='". $url[ 'icon' ] ."' />" : Image_Process::base64_encode_image( $url[ 'url' ] . '/images/favicon.ico' ) );
+        $str_title = ( isset( $url[ 'name' ] ) ? $url[ 'name' ] : str_replace( '.iternova.net', '', $url_parsed[ 'host' ] ) ); 
+        
         echo "<div class='column'>";
-        echo "<a href='". $url[ 'url' ] ."' class='box box-project'>". $str_image .  str_replace( '.iternova.net', '', $url_parsed[ 'host' ] ) . "</a>";
+        if ( !empty( $url_issues ) ) { 
+            echo "<a href='". $url_issues ."' class='box-issue box-project'><img class='thumbnail thumbnail-project' src='" . $url_ico_issues . "' /></a>";
+            echo "<a href='". $url_issues ."' " . ( $issues_open_on_project ? "onclick='window.open(\"". $url[ 'url' ] ."\");' " : '' ) . "class='box-small box-project'>". $str_image .  $str_title . "</a>";
+        } else {
+            echo "<a href='". $url[ 'url' ] ."' class='box box-project'>". $str_image .  $str_title . "</a>";
+        }
         echo "</div>";
     }
 
@@ -58,7 +68,7 @@ if ( !empty( $array_projects ) ) {
 if ( !empty( $array_issues ) ) {
     echo "<div class='separator'></div>";
     echo "<div class='container'>";
-    echo "<h2>Github Issues</h2>";
+    echo "<h2>Gitlab Issues</h2>";
 
     foreach( $array_issues as $url ) {
         $str_image = ( isset(  $url[ 'icon' ]) ? "<img class='thumbnail thumbnail-project' src='". $url[ 'icon' ] ."' />" : '' );
@@ -71,6 +81,7 @@ if ( !empty( $array_issues ) ) {
 }
 echo "</body>";
 
+echo "<div class='separator'></div>";
 
 /**
  * Clase para procesar iconos que pueden ser de webs externas

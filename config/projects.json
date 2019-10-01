@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://localhost",
+        "name": "ES-ITERNOVA",
+        "issues": "https://gitlabhq.iternova.net/groups/smartroads/issues",
+        "icon":  "images/iternova.ico"
+    },
+    {
         "url": "https://sr.iternova.net"
     }
 ]
