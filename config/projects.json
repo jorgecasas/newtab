@@ -3,10 +3,15 @@
         "url": "https://localhost",
         "name": "ES-ITERNOVA",
         "issues": "https://gitlabhq.iternova.net/groups/smartroads/issues",
-        "icon":  "images/iternova.ico"
+        "icon":  "images/iternova.ico",
+        "background": "background-es"
     },
     {
-        "url": "https://sr.iternova.net"
+        "url": "https://sr.iternova.net",
+        "name": "SmartRoads ITERNOVA",
+        "issues": "https://gitlabhq.iternova.net/groups/smartroads/issues",
+        "icon":  "images/iternova.ico",
+        "background": "background-es"
     }
 ]
 
