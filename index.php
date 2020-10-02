@@ -19,13 +19,16 @@ echo "<title>New TAB</title>";
 echo '<meta http-equiv="Content-Security-Policy" content="default-src *; style-src \'self\' \'unsafe-inline\' http: https: data:; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' https: http: data:; img-src \'self\' \'unsafe-inline\' \'unsafe-eval\' https: http: data: content:;">';
 echo "<link rel='stylesheet' type='text/css' href='css/index.css'>";
 echo "<link rel='shortcut icon' id='favicon-base' type='image/x-icon' href='images/iternova.ico' />";
+echo "<script src='./js/libs.js' type='text/javascript'></script>";
 echo "</head><body>";
 
 echo "<div class='container'>";
 
-// Datetime in UTC+0
+// Datetime in UTC+0 and filter
 $date_utc = new \DateTime("now", new \DateTimeZone("UTC"));
-echo "<div id='datetime'><b>UTC+0:</b> " . $date_utc->format( 'Y-m-d H:i' ). "</div>";
+echo "<div id='datetime'><b>UTC+0:</b> " . $date_utc->format( 'Y-m-d H:i' );
+echo "<div id='div_filter'><input type='text' id='filter' onkeyup='Newtab_Controller.filter(\"box\");Newtab_Controller.filter(\"box-project\");' accesskey='s' autofocus placeholder='Filter... [Alt+S]' /></div>";
+echo "</div>";
 
 // Logo
 echo "<div id='logo' class='column'><img src='$url_logo' /></div>";
@@ -64,7 +67,7 @@ if ( !empty( $array_projects ) ) {
         
         echo "<div class='column'>";
         if ( !empty( $url_issues ) ) { 
-            echo "<a href='". $url_issues ."' class='box-issue box-project'><img class='thumbnail thumbnail-project' src='" . $url_ico_issues . "' /></a>";
+            echo "<a href='". $url_issues ."#note-body' class='box-issue box-project' title='" . $str_title . "'><img class='thumbnail thumbnail-project' src='" . $url_ico_issues . "' title='" . $str_title . "' /></a>";
             echo "<a href='". $url[ 'url' ] ."' " . ( $issues_open_on_project ? "onclick='window.open(\"". $url_issues ."\");' " : '' ) . "class='box-small box-project " . $background . "'>". $str_image .  $str_title . "</a>";
         } else {
             echo "<a href='". $url[ 'url' ] ."' class='box box-project'>". $str_image .  $str_title . "</a>";
